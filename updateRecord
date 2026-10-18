@@ -1,0 +1,20 @@
+<?php
+require_once("dbConfig.php");
+
+// Update product details
+
+$sql = "UPDATE products
+
+SET
+product_price = 7.99,
+product_quantity = 100
+
+WHERE product_id = 'FR001'";
+
+$stmt = $pdo->prepare($sql);
+
+$stmt->execute();
+
+echo "Record updated successfully.";
+
+?>
