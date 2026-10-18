@@ -1,0 +1,18 @@
+<?php
+require_once("dbConfig.php");
+
+// Select one product
+$sql = "SELECT * FROM products LIMIT 1";
+
+$stmt = $pdo->prepare($sql);
+
+$stmt->execute();
+
+$data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Display the row
+echo "<pre>";
+print_r($data);
+echo "</pre>";
+
+?>
