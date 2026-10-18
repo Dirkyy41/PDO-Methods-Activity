@@ -1,0 +1,58 @@
+<?php
+
+require_once("dbConfig.php");
+
+// Get all products
+
+$sql = "SELECT * FROM products";
+
+$stmt = $pdo->prepare($sql);
+
+$stmt->execute();
+
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PDO Methods</title>
+        <style>
+            table{
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th, td{
+                border: 1px solid black;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>French Grocery Products</h2>
+        <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Supplier</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Shelf</th>
+        </tr>
+        <?php foreach($products as $product){ ?>
+        <tr>
+            <td><?php echo $product['product_id']; ?></td>
+            <td><?php echo $product['product_name']; ?></td>
+            <td><?php echo $product['product_supplier']; ?></td>
+            <td><?php echo $product['product_category']; ?></td>
+            <td><?php echo $product['product_price']; ?></td>
+            <td><?php echo $product['product_quantity']; ?></td>
+            <td><?php echo $product['product_shelf']; ?></td>
+        </tr>
+        <?php } ?>
+        </table>
+    </body>
+</html>
