@@ -1,0 +1,18 @@
+<?php
+require_once("dbConfig.php");
+
+// Select all records
+$sql = "SELECT * FROM products";
+
+$stmt = $pdo->prepare($sql);
+
+$stmt->execute();
+
+$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Display array contents
+echo "<pre>";
+print_r($data);
+echo "</pre>";
+
+?>
