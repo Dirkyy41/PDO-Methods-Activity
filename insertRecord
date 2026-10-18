@@ -1,0 +1,34 @@
+<?php
+require_once("dbConfig.php");
+
+// Insert a new French product
+
+$sql = "INSERT INTO products
+(
+    product_id,
+    product_name,
+    product_supplier,
+    product_category,
+    product_price,
+    product_quantity,
+    product_shelf
+)
+
+VALUES
+(
+    'FR101',
+    'Bonne Maman Strawberry Jam',
+    'Bonne Maman',
+    'Jam',
+    5.99,
+    50,
+    'A01'
+)";
+
+$stmt = $pdo->prepare($sql);
+
+$stmt->execute();
+
+echo "Record inserted successfully.";
+
+?>
