@@ -1,0 +1,15 @@
+<?php
+require_once("dbConfig.php");
+
+// Delete product using product ID
+
+$sql = "DELETE FROM products
+        WHERE product_id = 'FR101'";
+
+$stmt = $pdo->prepare($sql);
+
+$stmt->execute();
+
+echo "Record deleted successfully.";
+
+?>
